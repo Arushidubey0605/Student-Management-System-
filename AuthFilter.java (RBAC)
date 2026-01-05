@@ -1,0 +1,22 @@
+package filter;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+public class AuthFilter implements Filter {
+
+    public void doFilter(ServletRequest req, ServletResponse res,
+                         FilterChain chain)
+            throws IOException, ServletException {
+
+        HttpServletRequest r = (HttpServletRequest) req;
+        HttpSession s = r.getSession(false);
+
+        if (s == null || s.getAttribute("role") == null) {
+            ((HttpServletResponse) res).sendRedirect("login.jsp");
+            return;
+        }
+        chain.doFilter(req, res);
+    }
+}
