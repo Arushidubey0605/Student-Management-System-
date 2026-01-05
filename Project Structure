@@ -1,0 +1,21 @@
+StudentManagementSystem
+│
+├── src/main/java
+│   ├── controller
+│   │   ├── LoginServlet.java
+│   │   └── StudentServlet.java
+│   │
+│   ├── dao
+│   │   ├── DatabaseConnection.java
+│   │   └── StudentDAO.java
+│   │
+│   └── filter
+│       └── AuthFilter.java
+│
+├── src/main/webapp
+│   ├── login.jsp
+│   ├── dashboard.jsp
+│   ├── students.jsp
+│   │
+│   └── WEB-INF
+│       └── web.xml
