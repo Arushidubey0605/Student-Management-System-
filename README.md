@@ -1,171 +1,125 @@
-📘 Student Management System – Java (Console Based)
+🎓 Student Management System
+Java Web Application using Servlets & JDBC
 
-A simple yet structured Student Management System built using Core Java, JDBC, and MySQL.
-This project allows users to Add, View, and Delete student records stored in a MySQL database.
+🚀 A secure and efficient Student Management System developed using Java Web Technologies, following MVC architecture and implementing Role-Based Access Control (RBAC) for enhanced security.
 
+📌 Project Overview
 
-🚀 Features
+The Student Management System is a web-based application designed to manage student records digitally.
+It allows authenticated users to add, view, and manage student data while ensuring that unauthorized access is restricted using a Servlet Filter.
 
-✔ Secure Login System
+This project is built as an academic Java Web project and is deployed on Apache Tomcat.
 
-Username & Password authentication
+🧠 Key Highlights
 
-Login validation using JDBC
-
-
-✔ Student Operations
-
-Add Student → Stores name and course
-
-View Students → Displays all students
-
-Delete Student → Remove a student by ID
+✅ Java Web-based application
+✅ Follows MVC Architecture
+✅ Secure authentication system
+✅ Role-Based Access Control (RBAC)
+✅ Database connectivity using JDBC
+✅ Clean and modular code structure
 
 
-✔ Database Connectivity
+🛠️ Technologies Used
 
-Uses JDBC (PreparedStatement & Connection)
+☕ Java (JDK 8+)
+🌐 Servlets
+🖥️ JSP
+🔗 JDBC
+🗄️ MySQL
+🚀 Apache Tomcat
+🧰 IntelliJ IDEA (Enterprise Java)
 
-Protects from SQL Injection
+🏗️ Architecture Used
+📐 MVC Architecture
 
-Well-structured code with DAO (Data Access Object) layers
+Model: JDBC, DAO classes, MySQL Database
+View: JSP Pages
+Controller: Servlets
 
+Ensures separation of concerns and easy maintenance
 
-✔ User-Friendly Console Interface
+🔐 Security – Role-Based Access Control (RBAC)
 
-Clean menu options
+🔒 Security is implemented using a Servlet Filter:
 
-Beginner-friendly & easy to use
+User role is stored in the HTTP Session
+Filter checks the role before accessing secured resources
+Unauthorized users are redirected to the login page
+Prevents direct URL access
 
-
-
----
-
-🛠 Tech Stack Used
-
-Component	Technology
-
-Language	Java (Core Java)
-Database	MySQL / MariaDB
-Connectivity	JDBC
-Tool/IDE	IntelliJ IDEA / VS Code / Eclipse
-Build Tool	Maven (optional)
-
-
-
----
-
-📁 Project Structure
-
-Student-Management-System
+StudentManagementSystem
 │
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   ├── student
-│   │   │   │   ├── AppMain.java
-│   │   │   │   ├── dao
-│   │   │   │   │   ├── StudentDAO.java
-│   │   │   │   │   ├── StudentDAOImpl.java
-│   │   │   │   ├── db
-│   │   │   │   │   ├── DatabaseConnection.java
-│   │   │   │   └── models
-│   │   │   │       └── Student.java
-│   │   └── resources
+├── src/main/java
+│   ├── controller
+│   │   ├── LoginServlet.java
+│   │   └── StudentServlet.java
+│   │
+│   ├── dao
+│   │   ├── DatabaseConnection.java
+│   │   └── StudentDAO.java
+│   │
+│   └── filter
+│       └── AuthFilter.java
 │
-├── README.md
-└── pom.xml  (if Maven project)
+├── src/main/webapp
+│   ├── login.jsp
+│   ├── dashboard.jsp
+│   ├── students.jsp
+│   │
+│   └── WEB-INF
+│       └── web.xml
 
+🗄️ Database Design
+👤 Users Table
+Field       	Description
+username	    User login name
+password     	User password
+role	        User role (ADMIN / STUDENT)
+🎓 Students Table
+Field	        Description
+id	            Student ID
+name        	Student name
+email       	Student email
+course      	Course enrolled
 
+✨ Features
 
-🗄️ Database Setup
+🔑 User Authentication (Login System)
+➕ Add Student Details
+👀 View Student Records
+🔐 Role-based Access Control
+🧩 Modular & reusable code
 
-1️⃣ Create a Database
+▶️ How to Run the Project
 
-Open MySQL CLI / Workbench / phpMyAdmin:
+Import the project into Eclipse as a Dynamic Web Project
+Configure Apache Tomcat Server
+Add MySQL Connector JAR to build path
+Create database using provided SQL script
+Run project on server
 
-CREATE DATABASE student_db;
-USE student_db;
+Open in browser:
+http://localhost:8080/StudentManagementSystem/login.jsp
 
-2️⃣ Create Students Table
+🎯 Academic Purpose
 
-CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    course VARCHAR(100)
-);
+Designed for Java Web Development coursework
+Demonstrates real-world usage of:
 
-3️⃣ Update Database Credentials
+Servlets
+JDBC
+Filters
+MVC Pattern
+Suitable for Review / Viva / Practical Exams
 
-In DatabaseConnection.java:
+🏁 Conclusion
 
-private static final String URL = "jdbc:mysql://localhost:3306/student_db";
-private static final String USER = "root";
-private static final String PASS = "your_mysql_password";
-
-
-
-▶ How to Run the Project
-
-Step 1: Clone the Repository
-
-git clone https://github.com/Arushidubey0605/Student-Management-System-.git
-
-Step 2: Open Project in IntelliJ / VSCode / Eclipse
-
-Step 3: Add MySQL JDBC Connector
-
-If using Maven, add it inside pom.xml:
-
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-j</artifactId>
-    <version>8.0.33</version>
-</dependency>
-
-If not using Maven → Download connector .jar & add to project libraries.
-
-Step 4: Run Main File
-
-Run:
-
-AppMain.java
-
-
-📸 Project Output (Console UI)
-
------ Student Management System -----
-
-Enter Username: admin
-Enter Password: 1234
-
-Login Successful!
-
------ MENU -----
-1. Add Student
-2. View Students
-3. Delete Student
-4. Exit
-
-
-📦 Future Enhancements
-
-Here are planned updates for Review 2 or Review 3:
-
-Convert console project to Servlet + JSP
-
-Add Update Student feature
-
-Add Search by ID / Name
-
-Add Bootstrap Admin UI
-
-Add Signup + Login with encryption
-
-Deploy on Tomcat Server
-
+The Student Management System is a secure, scalable, and well-structured Java Web Application.
+It demonstrates core concepts of Java Web Development, Database Connectivity, and Web Security.
 
 🤝 Contributors
+👨‍💻 Team Details
 
 Team Name: Encoders
 
